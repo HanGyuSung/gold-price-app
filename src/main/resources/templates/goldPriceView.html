@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>금 시세 조회 및 변동 그래프</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h1>현재 금 시세</h1>
+<p>가격: <span th:text="${price}">0.0</span> <span th:text="${currency}">USD</span></p>
+
+<!-- 금 시세 계산기로 이동하는 링크 -->
+<p><a href="/gold-price/calculator">금 시세 계산기 사용하기</a></p>
+
+<h1>금 시세 변동 그래프</h1>
+<canvas id="goldPriceChart"></canvas>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var priceHistory = [[${priceHistory}]];
+    var labels = [];
+    var data = [];
+
+    /* 날짜와 가격 데이터 추출 */
+    priceHistory.forEach(function(item) {
+        labels.push(item.date);
+        data.push(item.price);
+    });
+
+    var ctx = document.getElementById('goldPriceChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '금 가격',
+                data: data,
+                borderColor: 'gold',
+                fill: false
+            }]
+        }
+    });
+    /*]]>*/
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>금 시세 계산기</title>
+</head>
+<body>
+<h1>금 시세 계산기</h1>
+<form action="/gold-price/calculate" method="post">
+  <label for="weight">무게 (g):</label>
+  <input type="number" name="weight" id="weight" step="0.01" required>
+  <button type="submit">계산하기</button>
+</form>
+</body>
+</html>
