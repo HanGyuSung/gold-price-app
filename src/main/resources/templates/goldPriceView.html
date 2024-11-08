@@ -7,42 +7,50 @@
 </head>
 <body>
 <h1>현재 금 시세</h1>
-<p>가격: <span th:text="${price}">0.0</span> <span th:text="${currency}">USD</span></p>
+<p>가격 (1g 당): <span th:text="${#numbers.formatDecimal(price, 0, 0)}">0.0</span> USD (미국 달러)</p>
+<p>가격 (1g 당): <span th:text="${#numbers.formatDecimal(price * 1400, 0, 0)}">0.0</span> KRW (원)</p>
+<br>
+    <!-- 돈당 가격 표시 -->
+<p>가격 (1돈 당): <span th:text="${#numbers.formatDecimal(price * 3.75, 0, 0)}">0.0</span> USD (미국 달러)</p>
+<p>가격 (1돈 당): <span th:text="${#numbers.formatDecimal(price * 3.75 * 1400, 0, 0)}">0.0</span> KRW (원)</p>
+
+<p><small>※ 1 USD = 1400 KRW으로 가정하여 계산됨</small></p>
+
 
 <!-- 금 시세 계산기로 이동하는 링크 -->
 <p><a href="/gold-price/calculator">금 시세 계산기 사용하기</a></p>
 
-<h1>금 시세 변동 그래프</h1>
-<canvas id="goldPriceChart"></canvas>
+<!--<h1>금 시세 변동 그래프</h1>-->
+<!--<canvas id="goldPriceChart"></canvas>-->
 
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var priceHistory = [[${priceHistory}]];
-    var labels = [];
-    var data = [];
+<!--<script th:inline="javascript">-->
+<!--    /*<![CDATA[*/-->
+<!--    var priceHistory = [[${priceHistory}]];-->
+<!--    var labels = [];-->
+<!--    var data = [];-->
 
-    /* 날짜와 가격 데이터 추출 */
-    priceHistory.forEach(function(item) {
-        labels.push(item.date);
-        data.push(item.price);
-    });
+<!--    /* 날짜와 가격 데이터 추출 */-->
+<!--    priceHistory.forEach(function(item) {-->
+<!--        labels.push(item.date);-->
+<!--        data.push(item.price);-->
+<!--    });-->
 
-    var ctx = document.getElementById('goldPriceChart').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: '금 가격',
-                data: data,
-                borderColor: 'gold',
-                fill: false
-            }]
-        }
-    });
-    /*]]>*/
-</script>
-</body>
-</html>
+<!--    var ctx = document.getElementById('goldPriceChart').getContext('2d');-->
+<!--    var chart = new Chart(ctx, {-->
+<!--        type: 'line',-->
+<!--        data: {-->
+<!--            labels: labels,-->
+<!--            datasets: [{-->
+<!--                label: '금 가격',-->
+<!--                data: data,-->
+<!--                borderColor: 'gold',-->
+<!--                fill: false-->
+<!--            }]-->
+<!--        }-->
+<!--    });-->
+<!--    /*]]>*/-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
 
 

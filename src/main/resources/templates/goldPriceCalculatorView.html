@@ -6,10 +6,15 @@
 </head>
 <body>
 <h1>금 시세 계산기</h1>
-<form action="/gold-price/calculate" method="post">
-  <label for="weight">무게 (g):</label>
+<form action="/gold-price/calculator" method="post">
+  <label for="weight">무게 (돈):</label>
   <input type="number" name="weight" id="weight" step="0.01" required>
+
+  <!-- 단위는 돈으로 고정되어 입력됨 -->
+  <input type="hidden" name="unit" value="don">
+
   <button type="submit">계산하기</button>
 </form>
 </body>
 </html>
+

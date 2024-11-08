@@ -6,7 +6,18 @@
 </head>
 <body>
 <h1>계산 결과</h1>
-<p>입력한 무게: <span th:text="${weight}">0.0</span> g</p>
-<p>총 가격: <span th:text="${totalPrice}">0.0</span> <span th:text="${currency}">USD</span></p>
+<p>입력한 무게: <span th:text="${weight}">0.0</span> 돈</p>
+
+<!-- USD로 계산된 총 가격 -->
+<p>총 가격 (USD): <span th:text="${#numbers.formatDecimal(totalPrice, 0, 0)}">0.0</span> USD (미국 달러)</p>
+
+<!-- KRW로 계산된 총 가격 -->
+<p>총 가격 (KRW): <span th:text="${#numbers.formatDecimal(totalPrice * 1400, 0, 0)}">0.0</span> KRW (원)</p>
+
+<!-- 환율 정보 표시 -->
+<p><small>※ 1 USD = 1400 KRW으로 가정하여 계산됨</small></p>
+
 </body>
 </html>
+
+
