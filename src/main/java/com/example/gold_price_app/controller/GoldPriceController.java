@@ -30,21 +30,25 @@ public class GoldPriceController {
     }
 
     @PostMapping("/gold-price/calculator")
-    public String calculateGoldPrice(@RequestParam("weight") double weight, Model model) {
+    public String calculateGoldPrice(@RequestParam("weight") double weight,
+                                     @RequestParam("unit") String unit,
+                                     Model model) {
         GoldPriceResponse priceResponse = goldPriceService.getGoldPrice();
-        double currentPricePerGram = priceResponse.getPrice(); // 1g의 현재 금 시세
+        double currentPricePerGram = priceResponse.getPrice(); // null 검사 제거
+        double totalPrice;
 
-        // 1돈의 가격 계산 (1돈 = 3.75g)
-        double currentPricePerDon = currentPricePerGram * 3.75;
-
-        // 총 가격 계산
-        double totalPrice = weight * currentPricePerDon;
+        if ("don".equals(unit)) {
+            totalPrice = weight * currentPricePerGram * 3.75; // 1돈 = 3.75g
+            model.addAttribute("unitLabel", "돈");
+        } else {
+            totalPrice = weight * currentPricePerGram; // g 단위 계산
+            model.addAttribute("unitLabel", "그램");
+        }
 
         model.addAttribute("weight", weight);
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("currency", priceResponse.getCurrency());
-
-        return "goldPriceCalculatorResultView"; // 결과를 보여줄 새로운 뷰 반환
+        return "goldPriceCalculatorResultView";
     }
 
 }

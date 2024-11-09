@@ -2,23 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>금 시세 조회 및 변동 그래프</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>금 시세 조회</title>
+    <style>
+        .price {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .unit {
+            margin-left: 5px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #34495e;
+        }
+    </style>
 </head>
 <body>
 <h1>현재 금 시세</h1>
-<p>가격 (1g 당): <span th:text="${#numbers.formatDecimal(price, 0, 0)}">0.0</span> USD (미국 달러)</p>
-<p>가격 (1g 당): <span th:text="${#numbers.formatDecimal(price * 1400, 0, 0)}">0.0</span> KRW (원)</p>
-<br>
-    <!-- 돈당 가격 표시 -->
-<p>가격 (1돈 당): <span th:text="${#numbers.formatDecimal(price * 3.75, 0, 0)}">0.0</span> USD (미국 달러)</p>
-<p>가격 (1돈 당): <span th:text="${#numbers.formatDecimal(price * 3.75 * 1400, 0, 0)}">0.0</span> KRW (원)</p>
+<p class="section-title">1g 당 가격:</p>
+<p><span class="price" th:text="${#numbers.formatDecimal(price, 0, 2)}">0</span><span class="unit">USD (미국 달러)</span></p>
+<p><span class="price" th:text="${#numbers.formatDecimal(price * 1400, 0, 2)}">0</span><span class="unit">KRW (원)</span></p>
+
+<br> <!-- 줄 간격 추가 -->
+
+<p class="section-title">1돈 당 가격:</p>
+<p><span class="price" th:text="${#numbers.formatDecimal(price * 3.75, 0, 2)}">0</span><span class="unit">USD (미국 달러)</span></p>
+<p><span class="price" th:text="${#numbers.formatDecimal(price * 3.75 * 1400, 0, 2)}">0</span><span class="unit">KRW (원)</span></p>
 
 <p><small>※ 1 USD = 1400 KRW으로 가정하여 계산됨</small></p>
-
-
 <!-- 금 시세 계산기로 이동하는 링크 -->
 <p><a href="/gold-price/calculator">금 시세 계산기 사용하기</a></p>
+
+</body>
+</html>
 
 <!--<h1>금 시세 변동 그래프</h1>-->
 <!--<canvas id="goldPriceChart"></canvas>-->

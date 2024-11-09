@@ -3,20 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>금 시세 계산 결과</title>
+  <style>
+    .price {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .unit {
+      margin-left: 5px;
+      font-size: 0.9em;
+      color: #7f8c8d;
+    }
+    .section-title {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #34495e;
+    }
+  </style>
 </head>
 <body>
 <h1>계산 결과</h1>
-<p>입력한 무게: <span th:text="${weight}">0.0</span> 돈</p>
+<p class="section-title">입력한 무게:</p>
+<p><span class="price" th:text="${weight}">0</span><span class="unit" th:text="${unitLabel}">단위</span></p>
 
 <!-- USD로 계산된 총 가격 -->
-<p>총 가격 (USD): <span th:text="${#numbers.formatDecimal(totalPrice, 0, 0)}">0.0</span> USD (미국 달러)</p>
+<p class="section-title">총 가격 (USD):</p>
+<p><span class="price" th:text="${#numbers.formatDecimal(totalPrice, 0, 2)}">0</span><span class="unit">USD (미국 달러)</span></p>
 
 <!-- KRW로 계산된 총 가격 -->
-<p>총 가격 (KRW): <span th:text="${#numbers.formatDecimal(totalPrice * 1400, 0, 0)}">0.0</span> KRW (원)</p>
+<p class="section-title">총 가격 (KRW):</p>
+<p><span class="price" th:text="${#numbers.formatDecimal(totalPrice * 1400, 0, 2)}">0</span><span class="unit">KRW (원)</span></p>
 
 <!-- 환율 정보 표시 -->
 <p><small>※ 1 USD = 1400 KRW으로 가정하여 계산됨</small></p>
-
 </body>
 </html>
 
