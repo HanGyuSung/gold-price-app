@@ -1,6 +1,16 @@
-![image](https://github.com/user-attachments/assets/6b7953b5-152a-4ded-80de-2e1b7db07ef1)
-금 시세 계산기 사용하기 클릭
-![image](https://github.com/user-attachments/assets/c4d746fe-e3ba-4b9e-85ea-a30037aed22f)
-무게에 g단위로 양 입력 여기서는 1000으로 넣음.
-![image](https://github.com/user-attachments/assets/864077e2-204d-4810-84c8-b29665d5d6c3)
-출력결과 시세*양 = 가격
+# 금 시세 계산기 사용하기 클릭
+## +금 돈 단위 추가
+## +원화로 가격 표시 추가
+![image](https://github.com/user-attachments/assets/e066df90-ba96-4ba3-8c58-312552b68504)
+
+# g으로 2를 넣는 모습
+## +돈 단위 추가로 g, 돈으로 각각 넣어서 계산 가능하게 구현
+![image](https://github.com/user-attachments/assets/404d7d83-d6e2-4665-a79b-8e96600ff5dc)
+
+# 계산 결과
+![image](https://github.com/user-attachments/assets/2c3aed6a-c7e4-4c1c-bf28-fee28a6ba545)
+
+## +돈으로 2를 넣었을 때 결과
+![image](https://github.com/user-attachments/assets/9ab2f010-fa9d-4d3e-8e8e-9c2b86ca311c)
+
+
