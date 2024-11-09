@@ -5,7 +5,8 @@
 
 # g으로 2를 넣는 모습
 ## +돈 단위 추가로 g, 돈으로 각각 넣어서 계산 가능하게 구현
-![image](https://github.com/user-attachments/assets/404d7d83-d6e2-4665-a79b-8e96600ff5dc)
+![image](https://github.com/user-attachments/assets/5c4a2da0-13f2-4fe8-b2a4-c8f80fac1de0)
+
 
 # 계산 결과
 ![image](https://github.com/user-attachments/assets/2c3aed6a-c7e4-4c1c-bf28-fee28a6ba545)
